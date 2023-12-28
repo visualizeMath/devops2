@@ -16,6 +16,9 @@ sudo systemctl start rabbitmq-server
 #Enable plug-ins
 rabbitmq-plugins enable rabbitmq_management
 
+#Here an environment variable is used to prevent revealing password
+export RABBITMQ_PASSWORD=your_secure_password
+
 #Create new user
 rabbitmqctl add_user admin admin
 
