@@ -38,3 +38,10 @@ Run the script to grant the admin user permissions.
 ```bash
 ./grant_admin_permissions.sh
 ```
+### Step 6: Install docker
+Run the script install_docker.sh to install docker on the machine.
+
+```bash
+./install_docker.sh
+```
+#### Note: Log out and log in required after Docker installation in order to add the user to the docker group. If you are using vagrant for VM access you can log out with "exit" and log-in back with "vagrant ssh"

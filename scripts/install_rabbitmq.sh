@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo apt-get update
 sudo apt-get -y upgrade
 
@@ -14,7 +15,7 @@ echo "RabbitMQ Server installed."
 echo "Enabling RabbitMQ Server on system boot.."
 sudo systemctl enable rabbitmq-server
 
-#Start Rabbitmq Server
+#Start RabbitMQ Server
 echo "Starting RabbitMQ Server.."
 sudo systemctl start rabbitmq-server
 
@@ -22,15 +23,9 @@ sudo systemctl start rabbitmq-server
 echo "Enabling RabbitMQ plug-ins.."
 sudo rabbitmq-plugins enable rabbitmq_management
 
-# Install Minikube
-echo "Downloding Minikube..."
-curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-chmod +x minikube
-sudo install minikube /usr/local/bin/minikube
+#Verify RabbitMQ installation
+echo "Verifying RabbitMQ installation..."
 
-# Verify installation
-echo "Verifying Minikube installation..."
-minikube version	
-
-# Start Minikube with the Docker driver
-minikube start --driver=docker
+#The version info is located in the line: {rabbit,"RabbitMQ","3.5.7"}
+#We are splitting the line by the character '"' and take the 4th argument which is the version info.
+sudo rabbitmqctl status | grep "{rabbit," | awk -F'"' '{print $4}'

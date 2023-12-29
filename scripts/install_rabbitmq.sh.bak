@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo apt-get update
 sudo apt-get -y upgrade
 
@@ -22,20 +23,6 @@ sudo systemctl start rabbitmq-server
 echo "Enabling RabbitMQ plug-ins.."
 sudo rabbitmq-plugins enable rabbitmq_management
 
-# Download and install Minikube
-# Install Minikube
-if command -v minikube &>/dev/null; then
-    echo "Minikube is already installed. Skipping Minikube installation."
-else
-	echo "Downloding Minikube..."
-	curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-	chmod +x minikube
-	sudo install minikube /usr/local/bin/minikube
-	
-	# Verify installation
-	echo "Verifying Minikube installation..."
-	minikube version
-fi	
-
-	# Start Minikube with the Docker driver
-	minikube start --driver=docker
+#Verify RabbitMQ installation
+echo "Verifying RabbitMQ installation..."
+sudo rabbitmqctl status | grep "{rabbit," | awk -F'"' '{print $4}'
