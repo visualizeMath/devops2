@@ -28,10 +28,6 @@
 # Install SDKMAN from the internet and run it on bash
 	curl -s "https://get.sdkman.io" | bash	
 
-#Install Java using SDK
-	sdk install java
-#We add the bin directory to PATH and we make the SDK commands reachable from shell with source command. 
-	source "$HOME/.sdkman/bin/sdkman-init.sh"
 #Install springboot
 	echo "Installing springboot.."
 	 sdk install springboot

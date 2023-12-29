@@ -45,3 +45,18 @@ Run the script install_docker.sh to install docker on the machine.
 ./install_docker.sh
 ```
 #### Note: Log out and log in required after Docker installation in order to add the user to the docker group. If you are using vagrant for VM access you can log out with "exit" and log-in back with "vagrant ssh"
+
+### Step 7: Install helm & kubectl
+Run the script install_helm_kubectl.sh to install helm and kubectl. If the installation is successfull the version info of each application must be displayed.
+
+```bash
+./install_helm_kubectl.sh
+```
+
+### Step 8: Install minikube
+Run the script install_minikube.sh to install minikube. If the installation is successfull the version info of minikube must be displayed.
+
+```bash
+./install_minikube.sh
+```
+
