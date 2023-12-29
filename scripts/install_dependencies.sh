@@ -1,4 +1,6 @@
 #!/bin/bash
+
+sudo apt-get update
 # Download Helm using wget and install
 	echo "Downloding Helm .."
 	wget https://get.helm.sh/helm-v3.13.1-linux-amd64.tar.gz
@@ -17,21 +19,14 @@
 	echo "Verifying kubectl installation..."
 	kubectl version
 	
-# in order to install SDKMAN(Software Development Kit Manager) we need zip and unzip.	
-# Install zip
-	echo "Installing zip.."
-	sudo apt-get install zip
-# Install unzip
-	echo "Installing unzip.."
-	sudo apt-get install unzip
+# Installing netcat for testing the RabbitMQ connection later
+echo "Installing netcat"
+sudo apt-get install -y netcat
 
-# Install SDKMAN from the internet and run it on bash
-	curl -s "https://get.sdkman.io" | bash	
+#Installing python 3.*
+echo "Installing Python3"
+sudo apt-get install -y python3 python3-pip
 
-#Install springboot
-	echo "Installing springboot.."
-	 sdk install springboot
-	echo "Springboot version:"
-	spring --version
+echo "Python installed "
 
 

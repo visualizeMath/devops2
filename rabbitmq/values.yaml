@@ -150,7 +150,7 @@ auth:
   ## e.g:
   ## existingPasswordSecret: name-of-existing-secret
   ##
-  existingPasswordSecret: ""
+  existingPasswordSecret: "rabbitmq-secret-password"
   ## @param auth.enableLoopbackUser If enabled, the user `auth.username` can only connect from localhost
   ##
   enableLoopbackUser: false
@@ -933,7 +933,7 @@ persistence:
   ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
   ##   GKE, AWS & OpenStack)
   ##
-  storageClass: ""
+  storageClass: "standard"
   ## @param persistence.selector Selector to match an existing Persistent Volume
   ## selector:
   ##   matchLabels:
@@ -995,7 +995,7 @@ persistentVolumeClaimRetentionPolicy:
 service:
   ## @param service.type Kubernetes Service type
   ##
-  type: ClusterIP
+  type: NodePort
 
   ## @param service.portEnabled Amqp port. Cannot be disabled when `auth.tls.enabled` is `false`. Listener can be disabled with `listeners.tcp = none`.
   ##
@@ -1050,7 +1050,7 @@ service:
   ## @param service.nodePorts.metrics Node port for RabbitMQ Prometheues metrics
   ##
   nodePorts:
-    amqp: ""
+    amqp: "30672"
     amqpTls: ""
     dist: ""
     manager: ""
