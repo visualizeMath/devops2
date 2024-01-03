@@ -40,16 +40,23 @@ In order not to expose the password run the following command to create a secret
 The parameter <password> needs to be replaced with the actual password.
 
 ```bash
-kubectl create secret generic rabbitmq-secret --from-literal=password=<password>
+kubectl create secret generic rabbitmq-secret --from-literal=rabbitmq-password=<password>
 ```
-
-### 6. Helm Installations
-Go to the project directory (project_devops/) which contains the folders rabbitmq, consumer and producer and run the following commands:
+**Note** If the secret already exists, it needs to be deleted with this command:
 
 ```bash
-helm install rabbitmq-dev ./rabbitmq
-helm install producer-dev ./producer
-helm install consumer-dev ./consumer
+kubectl delete secret rabbitmq-secret
+```
+To see the created secret, the following command can be executed:
+
+```bash
+kubectl get secret rabbitmq-secret -o yaml
+```
+### 6. Deploy Helm Charts
+Go to the project directory (devops2/) which contains the folders rabbitmq, consumer and producer and run the following command:
+
+```bash
+./scripts/deploy_all_charts.sh
 ```
 ### 7. Verify Deployments
 Check if the pods and services are deployed:
