@@ -13,8 +13,8 @@ image:
 rabbitmq:
   host: rabbitmq-service
   port: 5672
-  username: user
-  existingPasswordSecret: rabbitmq-secret-password
+  username: admin
+  existingPasswordSecret: rabbitmq-secret
 
 imagePullSecrets: []
 nameOverride: ""
