@@ -1,6 +1,6 @@
 import pika,time
 
-connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+connection = pika.BlockingConnection(pika.ConnectionParameters('rabbitmq-service'))
 channel= connection.channel()
 
 #message to be published
