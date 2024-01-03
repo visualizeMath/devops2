@@ -137,11 +137,12 @@ auth:
   ## @param auth.username RabbitMQ application username
   ## ref: https://github.com/bitnami/containers/tree/main/bitnami/rabbitmq#environment-variables
   ##
-  username: user
+  username: admin
   ## @param auth.password RabbitMQ application password
   ## ref: https://github.com/bitnami/containers/tree/main/bitnami/rabbitmq#environment-variables
   ##
   password: ""
+  tags: administrator
   ## @param auth.securePassword Whether to set the RabbitMQ password securely. This is incompatible with loading external RabbitMQ definitions and 'true' when not setting the auth.password parameter.
   ## ref: https://github.com/bitnami/containers/tree/main/bitnami/rabbitmq#environment-variables
   ##
@@ -513,9 +514,12 @@ configurationExistingSecret: ""
 ## Use this instead of `configuration` to add more configuration
 ## Do not use simultaneously with `extraConfigurationExistingSecret`
 ##
-extraConfiguration: |-
-  #default_vhost = {{ .Release.Namespace }}-vhost
-  #disk_free_limit.absolute = 50MB
+# extraConfiguration: |-
+#   #default_vhost = {{ .Release.Namespace }}-vhost
+#   #disk_free_limit.absolute = 50MB
+extraConfiguration: |
+  set_permissions -p / admin ".*" ".*" ".*"
+
 
 ## @param extraConfigurationExistingSecret Existing secret with the extra configuration to append to `configuration`.
 ## Must contain the key "extraConfiguration"
@@ -638,7 +642,9 @@ extraVolumes: []
 ##         ...
 ##       }
 ##
-extraSecrets: {}
+# extraSecrets:
+#   rabbitmq-secret-password:
+#     password:
 ## @param extraSecretsPrependReleaseName Set this flag to true if extraSecrets should be created with <release-name> prepended.
 ##
 extraSecretsPrependReleaseName: false
@@ -1000,6 +1006,7 @@ service:
   ## @param service.type Kubernetes Service type
   ##
   type: NodePort
+  name: rabbitmq-service
 
   ## @param service.portEnabled Amqp port. Cannot be disabled when `auth.tls.enabled` is `false`. Listener can be disabled with `listeners.tcp = none`.
   ##
