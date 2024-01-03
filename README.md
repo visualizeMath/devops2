@@ -12,14 +12,29 @@ Give execute permissions to all scripts in the 'scripts/' folder:
 ```sh
 chmod +x *
 ```
+### 2. Install dependencies
+Run the script install_dependencies.sh to install helm, kubectl, python, erlang and netcat. If the installation is successfull the version info of each application must be displayed.
 
-### 2. Install RabbitMQ
-Run the following script to install RabbitMQ.
 ```bash
-./install_rabbitmq.sh
+./install_dependencies.sh
 ```
 
-### 3. Set RabbitMQ password
+### 3. Install docker
+Run the script install_docker.sh to install docker on the machine.
+
+```bash
+./install_docker.sh
+```
+ **Note**: Log out and log in required after Docker installation in order to add the user to the docker group. If you are using vagrant for VM access you can log out with "exit" and log-in back with "vagrant ssh"
+
+### 4. Install and run minikube
+Run the script install_minikube.sh to install and run minikube. If the installation is successfull the version info of minikube must be displayed.
+
+```bash
+./install_minikube.sh
+```
+
+### 5. Set RabbitMQ password
 Enter the following command on terminal to set the environment variable for admin user. This way the password will not be revealed in the script. Change the <password> with the password you want to set.
 
 ```bash
@@ -37,27 +52,6 @@ sudo rabbitmqctl add_user admin "$RABBITMQ_PASSWORD"
 Run the script to grant the user admin, administrator permissions.
 ```bash
 ./grant_admin_permissions.sh
-```
-### 6. Install docker
-Run the script install_docker.sh to install docker on the machine.
-
-```bash
-./install_docker.sh
-```
- **Note**: Log out and log in required after Docker installation in order to add the user to the docker group. If you are using vagrant for VM access you can log out with "exit" and log-in back with "vagrant ssh"
-
-### 7. Install dependencies
-Run the script install_dependencies.sh to install helm, kubectl, python and netcat. If the installation is successfull the version info of each application must be displayed.
-
-```bash
-./install_dependencies.sh
-```
-
-### 8. Install minikube
-Run the script install_minikube.sh to install minikube. If the installation is successfull the version info of minikube must be displayed.
-
-```bash
-./install_minikube.sh
 ```
 
 ### 9. Set password for RabbitMQ user

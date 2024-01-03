@@ -384,6 +384,10 @@ tcpListenOptions:
   ##
   keepalive: false
 
+#ibOd  
+# configuration:
+#   rabbitmq_password: "cGFzc3dvcmQ="
+
 configuration: |-
   ## Username and password
   ##

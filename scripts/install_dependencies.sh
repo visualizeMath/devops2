@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sudo apt-get update
+sudo apt-get -y upgrade
 # Download Helm using wget and install
 	echo "Downloding Helm .."
 	wget https://get.helm.sh/helm-v3.13.1-linux-amd64.tar.gz
@@ -28,5 +29,9 @@ echo "Installing Python3"
 sudo apt-get install -y python3 python3-pip
 
 echo "Python installed "
+
+echo "Installing Erlang..."
+#Install erlang
+sudo apt-get install -y erlang
 
 
