@@ -35,12 +35,12 @@ Run the script install_minikube.sh to install and run minikube. If the installat
 ```
 
 ### 5. Set password for RabbitMQ user
-In order not to reveal the password run the following command to set the password for RabbitMQ. 
+In order not to expose the password run the following command to create a secret that'll be used later for RabbitMQ user. 
 
-Change the parameter <password> with the password you want to set.
+The parameter <password> needs to be replaced with the actual password.
 
 ```bash
-helm install rabbitmq-dev ./rabbitmq --set auth.existingPasswordSecret=<password>
+kubectl create secret generic rabbitmq-secret --from-literal=password=<password>
 ```
 
 ### 6. Helm Installations
