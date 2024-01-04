@@ -1,6 +1,6 @@
 import pika,json
 
-connection = pika.BlockingConnection(pika.ConnectionParameters('rabbitmq-dev'))
+connection = pika.BlockingConnection(pika.ConnectionParameters('rabbitmq-dev.default.svc.cluster.local'))
 channel = connection.channel()
 
 queue = channel.queue_declare('devops')
