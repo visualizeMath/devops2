@@ -1062,7 +1062,7 @@ service:
   ## @param service.nodePorts.metrics Node port for RabbitMQ Prometheues metrics
   ##
   nodePorts:
-    amqp: "30672"
+    amqp: ""
     amqpTls: ""
     dist: ""
     manager: ""
