@@ -14,7 +14,13 @@ rabbitmq:
   host: rabbitmq-dev
   port: 5672
   username: admin
-  existingPasswordSecret: rabbitmq-secret
+env:
+  - name: RABBITMQ_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: rabbitmq-secret
+        key: rabbitmq-password
+  # existingPasswordSecret: rabbitmq-secret
 
 imagePullSecrets: []
 nameOverride: ""

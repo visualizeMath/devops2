@@ -35,6 +35,16 @@ spec:
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          #ibod-start
+          env:
+          {{- range .Values.rabbitmq.env }}
+          - name: {{ .name }}
+          valueFrom:
+           secretKeyRef:
+            name: {{ .valueFrom.secretKeyRef.name }}
+            key: {{ .valueFrom.secretKeyRef.key }}
+          {{- end }}
+          #ibod-end
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
