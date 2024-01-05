@@ -25,7 +25,7 @@ Run the script install_docker.sh to install docker on the machine.
 ```bash
 ./install_docker.sh
 ```
- **Note**: Log out and log in required after Docker installation in order to add the user to the docker group. If you are using vagrant for VM access you can log out with "exit" and log-in back with "vagrant ssh"
+ > **Note**: Log out and log in required after Docker installation in order to add the user to the docker group. If you are using vagrant for VM access you can log out with "exit" and log-in back with "vagrant ssh"
 
 ### 4. Install and run minikube
 Run the script install_minikube.sh to install and run minikube. If the installation is successfull the version info of minikube must be displayed.
@@ -42,7 +42,7 @@ The parameter <password> needs to be replaced with the actual password.
 ```bash
 kubectl create secret generic rabbitmq-secret --from-literal=rabbitmq-password=<password>
 ```
-**Note** If the secret already exists, it needs to be deleted with this command:
+> **Note** If the secret already exists, it needs to be deleted with this command:
 
 ```bash
 kubectl delete secret rabbitmq-secret
