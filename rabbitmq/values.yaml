@@ -936,7 +936,7 @@ rbac:
 persistence:
   ## @param persistence.enabled Enable RabbitMQ data persistence using PVC
   ##
-  enabled: false
+  enabled: true
   ## @param persistence.storageClass PVC Storage Class for RabbitMQ data volume
   ## If defined, storageClassName: <storageClass>
   ## If set to "-", storageClassName: "", which disables dynamic provisioning
