@@ -1,6 +1,12 @@
-import pika
+import pika,base64
 
-connection = pika.BlockingConnection(pika.ConnectionParameters('rabbitmq-dev.default.svc.cluster.local'))
+#Base64 encoded password
+encoded_pw="QWRlc3NvMTIz"
+#decode the password
+decoded_pw = base64.b64decode(encoded_pw).decode('utf-8')
+
+credentials = pika.PlainCredentials('admin',decoded_pw)
+connection = pika.BlockingConnection(pika.ConnectionParameters('rabbitmq-dev.default.svc.cluster.local',credentials=credentials))
 channel = connection.channel()
 
 queue = channel.queue_declare('devops')
