@@ -225,7 +225,7 @@ onlineSchedulers: ""
 memoryHighWatermark:
   ## @param memoryHighWatermark.enabled Enable configuring Memory high watermark on RabbitMQ
   ##
-  enabled: false
+  enabled: true
   ## @param memoryHighWatermark.type Memory high watermark type. Either `absolute` or `relative`
   ##
   type: "relative"
@@ -518,8 +518,8 @@ configurationExistingSecret: ""
 # extraConfiguration: |-
 #   #default_vhost = {{ .Release.Namespace }}-vhost
 #   #disk_free_limit.absolute = 50MB
-extraConfiguration: |
-  set_permissions -p / admin ".*" ".*" ".*"
+# extraConfiguration: |
+#   set_permissions -p / admin ".*" ".*" ".*"
 
 
 ## @param extraConfigurationExistingSecret Existing secret with the extra configuration to append to `configuration`.
