@@ -8,7 +8,7 @@ image:
   repository: ibrodc/producer-app
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.6"
+  tag: "1.7"
 
 rabbitmq:
   host: rabbitmq-dev
