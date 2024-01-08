@@ -254,7 +254,7 @@ extraPlugins: "rabbitmq_auth_backend_ldap"
 clustering:
   ## @param clustering.enabled Enable RabbitMQ clustering
   ##
-  enabled: true
+  enabled: false
   ## @param clustering.name RabbitMQ cluster name
   ## If not set, a name is generated using the common.names.fullname template
   ##
