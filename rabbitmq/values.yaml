@@ -1442,6 +1442,7 @@ volumePermissions:
     repository: bitnami/os-shell
     tag: 11-debian-11-r92
     digest: ""
+    debug: true
     ## Specify a imagePullPolicy
     ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
     ## ref: https://kubernetes.io/docs/user-guide/images/#pre-pulling-images
@@ -1471,9 +1472,9 @@ volumePermissions:
     ##
     limits: {}
     ## Examples:
-    ## requests:
-    ##    cpu: 100m
-    ##    memory: 128Mi
+    requests:
+       cpu: 2000m
+       memory: 1024Mi
     ##
     requests: {}
   ## Init container' Security Context
