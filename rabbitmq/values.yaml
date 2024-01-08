@@ -519,8 +519,6 @@ configurationExistingSecret: ""
 #   #default_vhost = {{ .Release.Namespace }}-vhost
 #   #disk_free_limit.absolute = 50MB
 extraConfiguration: |-
-  set_permissions -p / admin ".*" ".*" ".*"
-
 
 ## @param extraConfigurationExistingSecret Existing secret with the extra configuration to append to `configuration`.
 ## Must contain the key "extraConfiguration"
