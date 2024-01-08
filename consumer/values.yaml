@@ -6,9 +6,9 @@ replicaCount: 1
 
 image:
   repository: ibrodc/consumer-app
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.4"
+  tag: "1.5"
 
 rabbitmq:
   host: rabbitmq-dev
