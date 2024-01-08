@@ -30,7 +30,7 @@ Run the script install_docker.sh to install docker on the machine.
 ### 4. Install and run minikube
 Run the script install_minikube.sh to install and run minikube. If the installation is successfull the version info of minikube must be displayed.
 
-```bash
+```console
 ./install_minikube.sh
 ```
 

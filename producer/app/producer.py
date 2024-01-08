@@ -1,6 +1,7 @@
 import pika,time
 
-connection = pika.BlockingConnection(pika.ConnectionParameters('rabbitmq-dev.default.svc.cluster.local'))
+# connection = pika.BlockingConnection(pika.ConnectionParameters('rabbitmq-dev.default.svc.cluster.local'))
+connection = pika.BlockingConnection(pika.ConnectionParameters('127.0.0.1'))
 channel= connection.channel()
 
 #message to be published
